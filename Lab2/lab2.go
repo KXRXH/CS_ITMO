@@ -42,7 +42,11 @@ func main() {
 		return
 	}
 	fmt.Printf("Ошибка в бите с номером %d (%s)\n", binConvertedToInt, bitmap[int(binConvertedToInt-1)])
-	symbolCode[int(binConvertedToInt-1)] = 0
+	if symbolCode[int(binConvertedToInt-1)] == 0 {
+		symbolCode[int(binConvertedToInt-1)] = 1
+	} else {
+		symbolCode[int(binConvertedToInt-1)] = 0
+	}
 	fmt.Print("Правильное сообщение: ")
 	for _, v := range symbolCode {
 		fmt.Printf("%d", v)
