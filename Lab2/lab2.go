@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"regexp"
@@ -16,7 +15,7 @@ func main() {
 		_, err := fmt.Scanf("%s", &buffString)
 		match, _ := regexp.Match("^[0-1]+$", []byte(buffString))
 		if err != nil || len(buffString) != 7 || !match {
-			log.Fatalln(errors.New("неправильный формат ввода -> " + buffString))
+			log.Fatalln("неправильный формат ввода -> " + buffString)
 		}
 		for i, v := range buffString {
 			symbolCode[i], _ = strconv.Atoi(string(v))
