@@ -13,8 +13,8 @@ func main() {
 		var buffString string
 		fmt.Print("Введите 7-ми символьный код: ")
 		_, err := fmt.Scanf("%s", &buffString)
-		match, _ := regexp.Match("^[0-1]+$", []byte(buffString))
-		if err != nil || len(buffString) != 7 || !match {
+		match, _ := regexp.Match("^[0-1]{7}$", []byte(buffString))
+		if err != nil || !match {
 			log.Fatalln("неправильный формат ввода -> " + buffString)
 		}
 		for i, v := range buffString {
