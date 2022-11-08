@@ -22,7 +22,7 @@
 from re import compile
 import configparser
 
-from TestGenerator import new_test
+from TestGenerator import TestGenerator
 
 """
  4: =
@@ -30,19 +30,20 @@ from TestGenerator import new_test
  3: |
 """
 cfg = configparser.ConfigParser()
+generator = TestGenerator()
 cfg.read('TESTS.ini')
 # SMILE = input()
 SMILE = "=-|"
 SMILE_PATTERN = compile(r"=-\|")
 for i in range(1, 6):
-    with open(f'./TestsT1/test{i}', 'r') as TEST:
+    with open(f'./TestsT1/test{i}', 'r', encoding='utf-8') as TEST:
         TEST_DATA = TEST.read()
         print(f"TEST {i}\nТестовая строка: \"{TEST_DATA}\"")
         print(f"Верный ответ: {cfg['TUSK1'][f'TEST{i}']}")
         print(f"Ответ полученный через RegExp: {len(SMILE_PATTERN.findall(TEST_DATA))}\n")
-print("АВТОСГЕНЕРИРОВАННЫЕ ТЕСТЫ\n")
+print("АВТОТЕСТЫ\n")
 for i in range(1, 10):
-    TEST_DATA, TEST_ANSWER = new_test(SMILE)
+    TEST_DATA, TEST_ANSWER = generator.smile_test(SMILE)
     print(f"AUTO-TEST {i}\nТестовая строка: \"{TEST_DATA}\"")
     print(f"Верный ответ: {TEST_ANSWER}")
     print(f"Ответ полученный через RegExp: {len(SMILE_PATTERN.findall(TEST_DATA))}\n")
