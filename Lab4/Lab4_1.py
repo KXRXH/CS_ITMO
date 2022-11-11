@@ -3,6 +3,15 @@
 367468 % 36 = 16
 JSON2XML
 """
+from enum import Enum
+
+
+class Types(Enum):
+    Other = 0
+    String = 1
+    Number = 2
+
+
 PADDING = "    "
 with open('test.json', 'r', encoding='utf-8') as json_file:
     data = json_file.read()[1:-1]
@@ -11,41 +20,38 @@ with open('test.json', 'r', encoding='utf-8') as json_file:
     xml.write('<root>\n')
     tags = []
     strFlag = False
-    tagBuff = ""
-    in_tag = False
+    typeFlag = Types.Other
+    strBuffer = ""
     for n, i in enumerate(data):
-        print(tagBuff, tags, in_tag, strFlag)
-        if tagBuff == "Конец":
-            ...
         match i:
             case ":":
                 if strFlag:
-                    tagBuff += i
+                    strBuffer += i
                     continue
-                tag = tagBuff.replace(",", "").replace(":", "")
+                tag = strBuffer.replace(",", "").replace(":", "")
                 tags.append(tag)
                 xml.write(PADDING * len(tags) + f"<{tag}>\n")
-                tagBuff = ""
-                if not strFlag:
-                    in_tag = True
+                strBuffer = ""
             case "}":
-                if not strFlag:
-                    in_tag = False
-                    xml.write(PADDING * len(tags) + f"</{tags.pop(-1)}>\n")
+                if strFlag:
+                    strBuffer += i
+                    continue
+                xml.write(PADDING * len(tags) + f"</{tags.pop(-1)}>\n")
             case "{" | " ":
-                ...
+                if strFlag:
+                    strBuffer += i
             case '"':
                 strFlag = not strFlag
             case "," | "\n":
                 if data[n-1] == '"':
-                    xml.write(PADDING * (len(tags) + 1) + tagBuff)
-                    tagBuff = ""
+                    xml.write(PADDING * (len(tags) + 1) + strBuffer)
+                    strBuffer = ""
                     xml.write("\n" + PADDING * len(tags) + f"</{tags.pop(-1)}>\n")
                 elif i == ",":
-                    tagBuff += i
+                    strBuffer += i
             case _:
                 if strFlag:
-                    tagBuff += i
+                    strBuffer += i
 
     xml.write('</root>')
     xml.close()
