@@ -6,7 +6,7 @@ JSON2XML
 
 
 PADDING = "    "
-with open('test.json', 'r', encoding='utf-8') as json_file:
+with open('test2.json', 'r', encoding='utf-8') as json_file:
     data = json_file.read()[1:-1]
     xml = open(f'{json_file.name.replace(".json", "")}.xml', 'w', encoding='utf-8')
     xml.write('<?xml version="1.0" encoding="UTF-8"?>\n')
@@ -46,7 +46,7 @@ with open('test.json', 'r', encoding='utf-8') as json_file:
                     xml.write(PADDING * (len(tags) + 1) + strBuffer)
                     strBuffer = ""
                     xml.write("\n" + PADDING * len(tags) + f"</{tags.pop(-1)}>\n")
-                elif i == ",":
+                elif strFlag and i == ",":
                     strBuffer += i
             case _:
                 if strFlag:
