@@ -2,7 +2,6 @@
 Вариант: 12
 JSON2XML
 """
-import os
 
 
 def json2xml(json_object, padding=" "):
@@ -21,7 +20,7 @@ def json2xml(json_object, padding=" "):
         Парсинг тегов
         """
         for tag in json_object.keys():
-            xml_tag = tag.replace(' ', '_')
+            xml_tag = tag.replace(' ', '_').replace('-', '_')
             result_list.append(padding + f'<{xml_tag}>')
             # Вызываем функцию рекурсивно, чтобы учесть данные между тегами
             result_list.append(json2xml(json_object[tag], PADDING + padding))

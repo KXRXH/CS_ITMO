@@ -24,7 +24,7 @@ def json2xml(json_object, padding=" ", space="_"):
         Парсинг тегов
         """
         for tag in json_object.keys():
-            xml_tag = re.sub(" ", space, tag)
+            xml_tag = re.sub("-", space, re.sub(" ", space, tag))
             result_list.append(TEXT_PATTERN.sub(fr"{padding}<\1>", xml_tag))
             # Вызываем функцию рекурсивно, чтобы учесть данные между тегами
             result_list.append(json2xml(json_object[tag], PADDING + padding))
@@ -38,7 +38,7 @@ with open('Tests/test2.json', 'r', encoding='utf-8') as json_file:
     data = json_file.read()
     try:
         dic = eval(data)
-    except SyntaxError as e:
+    except SyntaxError or TypeError as e:
         print("error: bad json. " + e.msg)
         exit(1)
     xml = open(re.sub(".json$", "_re.xml", json_file.name), 'w', encoding='utf-8')

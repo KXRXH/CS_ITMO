@@ -5,7 +5,7 @@ def test_1():
         data = json_file.read()
         try:
             dic = eval(data)
-        except SyntaxError as e:
+        except SyntaxError or TypeError as e:
             print("error: bad json. " + e.msg)
             exit(1)
         xml = open(f'{json_file.name.replace(".json", "")}.xml', 'w', encoding='utf-8')
@@ -23,7 +23,7 @@ def test_2():
         data = json_file.read()
         try:
             dic = eval(data)
-        except SyntaxError as e:
+        except SyntaxError or TypeError as e:
             print("error: bad json. " + e.msg)
             exit(1)
         xml = open(Lab4_with_regex.FILE_PATTERN.sub("_re.xml", json_file.name), 'w', encoding='utf-8')
