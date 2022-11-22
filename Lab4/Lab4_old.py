@@ -6,7 +6,7 @@ JSON2XML
 
 
 PADDING = "    "
-with open('test2.json', 'r', encoding='utf-8') as json_file:
+with open('Tests/test2.json', 'r', encoding='utf-8') as json_file:
     data = json_file.read()[1:-1]
     xml = open(f'{json_file.name.replace(".json", "")}.xml', 'w', encoding='utf-8')
     xml.write('<?xml version="1.0" encoding="UTF-8"?>\n')
