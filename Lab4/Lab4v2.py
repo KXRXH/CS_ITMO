@@ -9,23 +9,23 @@ def json2xml(json_object, padding=" "):
     global PADDING
     result_list = []
     json_obj_type = type(json_object)
-    """
-    Парсинг списка
-    """
     if json_obj_type is list:
-        for sub_elem in json_object:
-            result_list.append(json2xml(sub_elem, padding))
+        """
+        Парсинг списка
+        """
+        for list_element in json_object:
+            result_list.append(json2xml(list_element, padding))
         return "\n".join(result_list)
-    """
-    Парсинг тегов
-    """
-    if json_obj_type is dict:
-        for tag_name in json_object.keys():
-            sub_obj = json_object[tag_name]
-            result_list.append(padding + f"<{tag_name.replace(' ', '_')}>")
+    elif json_obj_type is dict:
+        """
+        Парсинг тегов
+        """
+        for tag in json_object.keys():
+            xml_tag = tag.replace(' ', '_')
+            result_list.append(padding + f"<{xml_tag}>")
             # Вызываем функцию рекурсивно, чтобы учесть данные между тегами
-            result_list.append(json2xml(sub_obj, PADDING + padding))
-            result_list.append(padding + f"</{tag_name.replace(' ', '_')}>")
+            result_list.append(json2xml(json_object[tag], PADDING + padding))
+            result_list.append(padding + f"</{xml_tag}>")
         return "\n".join(result_list)
     return padding + json_object
 
