@@ -1,10 +1,5 @@
-import os
-
-import Lab4_default
-import Lab4_with_regex
-
-
 def test_1():
+    import Lab4_default
     PADDING = " "
     with open('Tests/test2.json', 'r', encoding='utf-8') as json_file:
         data = json_file.read()
@@ -22,6 +17,7 @@ def test_1():
 
 
 def test_2():
+    import Lab4_with_regex
     PADDING = " "
     with open('Tests/test2.json', 'r', encoding='utf-8') as json_file:
         data = json_file.read()
