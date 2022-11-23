@@ -5,7 +5,7 @@ from re import Pattern, compile
 
 class TestGenerator:
     def __init__(self):
-        self.__smile_alphabet = "QWERTYUIOPASDFGHJKLZXCVBNM_+:\}{<>-=?}|\\ ()|[]"
+        self.__smile_alphabet = "QWERTYUIOPASDFGHJKLZXCVBNM_+:}{<>-=?}|\\ ()|[]"
         self.__studs_alphabet = "ИАКМЛВНТ"
         self.__studs_surname_set = ["Котов", "Панов", "Семенов", "Ковалев", "Смирнов", "Поздняков", "Белов",
                                     "Владимиров", "Пахомов", "Петухов", "Филимонов", "Беликов", "Богданов", "Корнилов",
@@ -15,7 +15,7 @@ class TestGenerator:
         test_str = ""
         size = randint(10000, 100000)
         for _ in range(size):
-            test_str += self.__smile_alphabet[randint(0, 46)]
+            test_str += self.__smile_alphabet[randint(0, 45)]
         return test_str, test_str.count(smile)
 
     def studs_test(self) -> ([str], Pattern[str]):

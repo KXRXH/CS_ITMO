@@ -7,3 +7,9 @@ for i in range(1, 6):
         TEST_DATA = TEST.read()
         print(f"Тест {i}:\n\"{TEST_DATA}\"")
         print(f"Ответ:\n\"{sub(TIME_PATTERN2, '(TBD)', sub(TIME_PATTERN1, '(TBD)', TEST_DATA))}\"\n")
+
+print("USER-TEST")
+n = int(input("Введите количество тестов: "))
+for i in range(n):
+    test_str = input(f"тест #{i+1}: ")
+    print(f"Ответ:\n\"{sub(TIME_PATTERN2, '(TBD)', sub(TIME_PATTERN1, '(TBD)', test_str))}\"\n")

@@ -11,7 +11,7 @@ def test_1():
         xml = open(f'{json_file.name.replace(".json", "")}.xml', 'w', encoding='utf-8')
         xml.write('<?xml version="1.0" encoding="UTF-8"?>\n')
         xml.write('<Расписание>\n')
-        xml.write(Lab4_default.json2xml(dic, PADDING) + "\n")
+        xml.write(Lab4_default.converter(dic, PADDING) + "\n")
         xml.write('</Расписание>')
         xml.close()
 
@@ -29,7 +29,7 @@ def test_2():
         xml = open(Lab4_with_regex.FILE_PATTERN.sub("_re.xml", json_file.name), 'w', encoding='utf-8')
         xml.write('<?xml version="1.0" encoding="UTF-8"?>\n')
         xml.write('<Расписание>\n')
-        xml.write(Lab4_with_regex.json2xml(dic, PADDING) + "\n")
+        xml.write(Lab4_with_regex.converter(dic, PADDING) + "\n")
         xml.write('</Расписание>')
         xml.close()
 
