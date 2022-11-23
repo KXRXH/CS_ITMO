@@ -1,13 +1,15 @@
 import re
 
-
 # ^(00|\+)(\d{1,2})\((\d{3,6})\)(\d{3})-(\d{2})(-\d{2})?$
 
 
+regex1 = re.compile(r"^(00|\+)(\d{1,2})((\(\d{3}\)\d{3}-(\d{2}-\d{2}))|(\(\d{5}\)\d{3}-(\d{2})))$")
+
+
 def check_number(_number):
-    if _number.count("(") and len(re.sub(r"[ |\-|\)]", "", _number.split("(")[1])) == 10 and re.match(
-            r"^(00|\+)(\d{1,2})\((\d{3,6})\)(\d{3})-(\d{2})(-\d{2})?$",
-            _number):
+    # regex = r"^(00|\+)(\d{1,2})\((\d{3,5})\)(\d{3})-(\d{2})(-\d{2})?$"
+    # if re.match(regex, _number) and len(re.sub(r"[ |\-|\)]", "", _number.split("(")[1])) == 10:
+    if regex1.match(_number):
         return f"{_number} is valid"
     return f"{_number} is invalid"
 
