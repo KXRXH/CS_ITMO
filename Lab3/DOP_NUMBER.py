@@ -23,7 +23,7 @@ tests = [
     "+013(76531)233-12",
     "+13(76531)233-12"
 ]
-number = input()
+number = input("Введите номер телефона: ")
 print(check_number(number))
 for i in tests:
     print(check_number(i))
