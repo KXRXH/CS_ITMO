@@ -1,5 +1,5 @@
-from re import compile, findall
 import configparser
+from re import compile, findall
 
 from TestGenerator import TestGenerator
 

@@ -1,9 +1,11 @@
 import sys
 import timeit
-import Lab4_with_regex
-import Lab4_default
+
 import json2xml.json2xml
 from json2xml.utils import readfromstring
+
+import Lab4_default
+import Lab4_with_regex
 
 
 def test_1():

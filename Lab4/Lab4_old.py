@@ -1,9 +1,7 @@
 """
-Вариант: 16
-367468 % 36 = 16
+Вариант: 12
 JSON2XML
 """
-
 
 PADDING = "    "
 with open('Tests/test2.json', 'r', encoding='utf-8') as json_file:
@@ -28,7 +26,7 @@ with open('Tests/test2.json', 'r', encoding='utf-8') as json_file:
                 if strFlag:
                     strBuffer += i
                     continue
-                elif data[n-1] == '"':
+                elif data[n - 1] == '"':
                     xml.write(PADDING * (len(tags) + 1) + strBuffer)
                     strBuffer = ""
                     xml.write("\n" + PADDING * len(tags) + f"</{tags.pop(-1)}>\n")
@@ -37,12 +35,12 @@ with open('Tests/test2.json', 'r', encoding='utf-8') as json_file:
                 if strFlag:
                     strBuffer += i
             case '"':
-                if data[n-1] == "\\":
+                if data[n - 1] == "\\":
                     strBuffer += i
                     continue
                 strFlag = not strFlag
             case "," | "\n":
-                if data[n-1] == '"':
+                if data[n - 1] == '"':
                     xml.write(PADDING * (len(tags) + 1) + strBuffer)
                     strBuffer = ""
                     xml.write("\n" + PADDING * len(tags) + f"</{tags.pop(-1)}>\n")

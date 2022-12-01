@@ -19,9 +19,9 @@
 ─██████████████────██████████████────────────██████────────────██████────██████████████────██████████████─
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 """
+import configparser
 import re
 from re import compile, Pattern
-import configparser
 
 from TestGenerator import TestGenerator
 
@@ -46,5 +46,5 @@ for i in range(1, 6):
 print("USER-TEST")
 n = int(input("Введите количество тестов: "))
 for i in range(n):
-    test_str = input(f"тест #{i+1}: ")
+    test_str = input(f"тест #{i + 1}: ")
     print(f"Ответ: {len(SMILE_PATTERN.findall(test_str))}\n")
