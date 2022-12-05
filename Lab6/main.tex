@@ -1,0 +1,28 @@
+\documentclass[a4paper,14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{diagbox}
+\usepackage{fancyhdr, mathtools, bm, geometry, graphicx, subcaption}
+\usepackage{tikz}
+\usepackage{amsmath,amsthm,amssymb}
+\begin{document}
+\thispagestyle{empty}
+    \newgeometry{
+      a4paper,
+      top=25mm, 
+      right=20mm, 
+      bottom=25mm, 
+      left=20mm
+    }
+    \input{first_page.tex}
+    \restoregeometry
+    \clearpage
+    \newpage
+
+\input{second_page.tex}
+\setcounter{page}{2}
+\end{document}
