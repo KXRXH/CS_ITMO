@@ -6,7 +6,8 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{diagbox}
-\usepackage{fancyhdr, mathtools, bm, geometry, graphicx, subcaption}
+\usepackage{fancyhdr, mathtools, bm, geometry, subcaption}
+\PassOptionsToPackage{final}{graphicx}
 \usepackage{tikz}
 \usepackage{amsmath,amsthm,amssymb}
 \begin{document}
@@ -24,4 +25,7 @@
 
 \input{second_page.tex}
 \setcounter{page}{2}
+\newpage
+\input{third_page.tex}
+\setcounter{page}{3}
 \end{document}
