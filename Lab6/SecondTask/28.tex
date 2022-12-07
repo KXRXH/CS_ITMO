@@ -1,0 +1,27 @@
+\begin{frame}
+    \small
+    
+    \frametitle{\begin{flushright}\textcolor{blue}{П}еревод из одной СС в другую. Пример 3\end{flushright}}
+    \centering
+    \par \textcolor{UsrGreen}{\textbf{Задача}}: $0{,}15_{(10)}$ =  $?_{(3)}$ = $0{,}ABCD..._{(3)}$ = $A/3^{1}$ + $B/3^{2}$ + $C/3^{3}$ + $D/3^{4}$ + $...$\\
+    \vspace{.2cm}
+    \textcolor{UsrGreen}{\textbf{Решение}}: ($A/3^{1}$ + $B/3^{2}$ + $C/3^{3}$ + $D/3^{4}$ + $...$)*3 = $A*3^{0}$ + ($B/3^{1}$ + $C/3^{2}$ + $D/3^{3}$ + $...$)\\
+    \vspace{.4cm}
+    $=>$ 3*$0{,}ABCD..._{(3)}$ = $A{,}BCD..._{(3)}$\\
+    \begin{center}
+        \small
+            \begin{tabular}{|l|c|c|c|c|c|c|c|}
+                \hline
+                    \parbox[c][.6cm][c]{4cm}{\cellcolor{black}\textcolor{white}{Номер шага (i)}} & 0 & 1 & 2 & 3 & 4 & 5 & ...\\
+                \hline
+                    \parbox[c][.8cm][c]{4cm}{\cellcolor{black}\textcolor{white}{Целая часть после умножения дробной части на 3}} & 0 & 0 & 1 & 1 & 0 & 0 & ...\\
+                \hline
+                    \parbox[c][.8cm][c]{4cm}{\cellcolor{black}\textcolor{white}{Дробная часть после умножения на 3}} & 0,15 & 0,45 & 0,35 & 0,05 & 0,15 & 0,45 & ...\\
+                \hline
+            \end{tabular}
+    \end{center}
+
+    \begin{flushleft}
+        \textcolor{UsrGreen}{\textbf{Ответ}}: $0{,}15_{(10)}$ =  $0{,}011001100..._{(3)}$ = $0{,}(0110)_{(3)}$
+    \end{flushleft}
+\end{frame}

@@ -1,0 +1,24 @@
+\begin{frame}
+    \small
+    \frametitle{\begin{flushright}\textcolor{blue}{П}реобразование из CC-2 в CC-2$^{k}$ и обратно\end{flushright}}
+    \begin{flushleft}
+        \textcolor{UsrGreen}{\textbf{Из СС-N в СС-N$^{k}$}}
+        \begin{itemize}
+            \item дополнить число, записанное в СС с основанием \textit{N}, незначащими нулями так, чтобы количество цифр было кратно \textit{k};
+            \item разбить полученное число на группы по \textit{k} цифр, начиная от нуля;
+            \item заменить каждую такую группу эквивалентным числом, записанным в СС с основанием $N^{k}$.
+            \\
+            \hspace{1cm} Задача: 1020101$_{(3)}$ = ?$_{(27)}$\\
+            \hspace{1cm} Решение: 1020101$_{(3)}$ = 001 020 101$_{(3)}$ = 16A?$_{(27)}$
+        \end{itemize}
+    \end{flushleft}
+    \begin{flushleft}
+        \textcolor{UsrGreen}{\textbf{Из -N$^{k}$ в CC-N}}
+        \begin{itemize}
+            \item заменить каждую цифру числа, записанного в CC с основанием N$^{k}$, эквивалентным набором из \textit{k} цифр CC с основанием \textit{N}.;
+            \\
+            \hspace{1cm} Задача: 2345$_{(125)}$ = ?$_{(5)}$\\
+            \hspace{1cm} Решение: 2345$_{(125)}$ = 002 003 004 010$_{(5)}$ = 2003004010$_{(5)}$
+        \end{itemize}
+    \end{flushleft}
+\end{frame}

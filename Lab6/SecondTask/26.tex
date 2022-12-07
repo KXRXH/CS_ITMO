@@ -1,0 +1,30 @@
+\begin{frame}
+    \small
+    
+    \frametitle{\begin{flushright}\textcolor{blue}{П}еревод из одной СС в другую. Пример 1\end{flushright}}
+    $231_{(10)}$ = $ABC_{(10)}$ = $...HGFE_{(8)}$ = $...+ H*8^{3}$ + $G*8^{2}$ + $F*8 + E$, при натуральных $H, G, F, E < 8$.
+    
+    \begin{center}
+        \textcolor{UsrGreen}{\textbf{Как найти E, F, G, H?}}\\
+        \vspace{.3cm}
+         Решение: (…+ $H*8^{3}$ + $G*8^{2}$ + $F*8$ + $E$)/8 = …+ $H*8^{2}$ + $G*8^{1}$\\ + $F$ (плюс остаток $E$) => (...$HGFE_{(8)}$)/8 = ...$HGF_{(8)}$ (с остатком $E$)
+        \end{center}
+    
+    \begin{center}
+        \small
+            \begin{tabular}{|l|c|c|c|c|c|c|}
+                \hline
+                    \parbox[c][.6cm][c]{4cm}{\cellcolor{black}\textcolor{white}{Номер шага (i)}} & 0 & 1 & 2 & 3 & 4 & ...\\
+                \hline
+                    \parbox[c][.6cm][c]{4cm}{\cellcolor{black}\textcolor{white}{Частное от деления на 8}} & 231 & 28 & 3 & 0 & 0 & 0\\
+                \hline
+                    \parbox[c][.6cm][c]{4cm}{\cellcolor{black}\textcolor{white}{Остаток от деления на 8}} & 0 & 7 & 4 & 3 & 0 & 0\\
+                \hline
+            \end{tabular}
+    \end{center}
+    
+    \begin{center}
+        \textcolor{UsrGreen}{\textbf{Ответ}}: E=7, F=4, G=3, H=0.\\
+        $231_{(10)} = 347_{(8)}$
+    \end{center}
+\end{frame}
